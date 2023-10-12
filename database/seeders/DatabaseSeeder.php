@@ -34,7 +34,37 @@ class DatabaseSeeder extends Seeder
              'name' => '人狼',
          ]);
          \App\Models\Role::create([
+             'name' => '狂人',
+         ]);
+         \App\Models\Role::create([
+             'name' => '狂信者',
+         ]);
+         \App\Models\Role::create([
              'name' => '市民',
+         ]);
+         \App\Models\Role::create([
+             'name' => '騎士',
+         ]);
+         \App\Models\Role::create([
+             'name' => '霊媒師',
+         ]);
+         \App\Models\Role::create([
+             'name' => '占い師',
+         ]);
+         \App\Models\Role::create([
+             'name' => '共有者',
+         ]);
+         \App\Models\Role::create([
+             'name' => '名探偵',
+         ]);
+         \App\Models\Role::create([
+             'name' => 'てるてる',
+         ]);
+         \App\Models\Role::create([
+             'name' => '妖狐',
+         ]);
+         \App\Models\Role::create([
+             'name' => '背徳者',
          ]);
         
         //resultテーブル(２件)
@@ -47,7 +77,13 @@ class DatabaseSeeder extends Seeder
          ]);
 
          \App\Models\ResultWay::create([
-             'name' => '吊られ',
+             'name' => '吊り',
+         ]);
+         \App\Models\ResultWay::create([
+             'name' => '噛み',
+         ]);
+         \App\Models\ResultWay::create([
+             'name' => '勝ち',
          ]);
     }
 }
