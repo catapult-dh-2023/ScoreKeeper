@@ -12,6 +12,9 @@
           @include('common.errors')
           <form class="mb-6" action="{{ route('game.store') }}" method="POST">
             @csrf
+            <div>
+              <p class="text-xl mb-6">Data Input</p>
+            </div>
             <div class="flex flex-col mb-4">
               <x-input-label for="game" :value="__('Tweet')" />
               <x-text-input id="game" class="block mt-1 w-full" type="text" name="game" :value="old('game')" required autofocus />
