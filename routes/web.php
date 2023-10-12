@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\GameController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,8 +13,6 @@ use App\Http\Controllers\GameController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-Route::resource('game', GameController::class);
 
 Route::get('/', function () {
     return view('welcome');

@@ -13,7 +13,8 @@ class GameController extends Controller
      */
     public function index()
     {
-        return response()->view('game.index');
+        $games = [];
+        return response()->view('game.index',compact('games'));
     }
 
     /**
