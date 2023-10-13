@@ -6,7 +6,7 @@
         <!-- Logo -->
         <div class="shrink-0 flex items-center">
           <a href="{{ route('dashboard') }}">
-            <img src="{{ asset('logo.png') }}" alt="ScoreKeeperのロゴ">
+            <img src="{{ asset('logo.png') }}" alt="ScoreKeeperのロゴ" class="block h-9 w-auto fill-current" />
           </a>
         </div>
 
