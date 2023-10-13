@@ -1,4 +1,11 @@
 <x-guest-layout>
+    <!-- ロゴを表示する部分 -->
+    <div class="logo">
+        <img src="{{ asset('logo.png') }}" alt="ScoreKeeperのロゴ">
+    </div>
+
+    <div style="margin-top: 20px;"></div>
+
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
