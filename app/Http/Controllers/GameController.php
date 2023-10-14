@@ -30,7 +30,22 @@ class GameController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // バリデーション
+        $validator = Validator::make($request->all(), [
+            'date' => ['required', 'date'],
+            'event_name' => ['required'],
+            'situation' => ['required'],
+            'total_participants' => ['required', 'integer'],
+        ]);
+
+        // バリデーションエラー
+        if ($validator->fails()) {
+            return redirect()->route('game.create')->withInput()->withErrors($validator);
+        }
+
+        $result = Game::create($request->all());
+
+        return redirect()->route('game.index');
     }
 
     /**
