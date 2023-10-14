@@ -14,13 +14,21 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        //Userテーブル(1件)
+        //Userテーブル(3件)
          \App\Models\User::factory()->create([
              'name' => 'Test User',
              'email' => 'test@example.com',
          ]);
+         \App\Models\User::factory()->create([
+             'name' => 'Test User2',
+             'email' => 'test2@example.com',
+         ]);
+         \App\Models\User::factory()->create([
+             'name' => 'Test User3',
+             'email' => 'test3@example.com',
+         ]);
 
-        //Gameテーブル(1件)
+        //Gameテーブル(2件)
          \App\Models\Game::create([
              'date' => '2023-10-12',
              'event_name' => 'TestEvent',
@@ -28,7 +36,13 @@ class DatabaseSeeder extends Seeder
              'total_participants' => 100000,
              'note' => 'Gameidが発行されてない個人成績はこのGaemとして扱いましょう' 
          ]);
-
+         \App\Models\Game::create([
+             'date' => '2023-10-13',
+             'event_name' => 'TestEvent2',
+             'situation' => 'TestSituation',
+             'total_participants' => 500000,
+             'note' => 'Testgame2' 
+         ]);
         //roleテーブル(たくさん)
          \App\Models\Role::create([
              'name' => '人狼',
@@ -84,6 +98,35 @@ class DatabaseSeeder extends Seeder
          ]);
          \App\Models\ResultWay::create([
              'name' => '勝ち',
+         ]);
+         
+         //Individual Resultデータ(3件)
+         \App\Models\IndividualResult::create([
+            'user_id' => '1',
+            'game_id' => '1',
+            'role_id' => '1',
+            'result_id' => '1',
+            'result_day' => '1',
+            'result_way_id' => '1',
+            'note' => 'test case 1'
+         ]);
+         \App\Models\IndividualResult::create([
+            'user_id' => '1',
+            'game_id' => '2',
+            'role_id' => '1',
+            'result_id' => '1',
+            'result_day' => '1',
+            'result_way_id' => '1',
+            'note' => 'test case 2'
+         ]);
+         \App\Models\IndividualResult::create([
+            'user_id' => '2',
+            'game_id' => '2',
+            'role_id' => '1',
+            'result_id' => '1',
+            'result_day' => '1',
+            'result_way_id' => '1',
+            'note' => 'test case 3'
          ]);
     }
 }
