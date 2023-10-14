@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Result extends Model
 {
     use HasFactory;
+
+    protected $guarded = [
+        'id',
+        'crated_at',
+        'updated_at',
+    ];
+    
 }

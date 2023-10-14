@@ -8,7 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class IndividualResult extends Model
 {
     use HasFactory;
-
+    
+    protected $guarded = [
+        'id',
+        'crated_at',
+        'updated_at',
+    ];
+    
     //多対1モデル
     public function game()
     {
