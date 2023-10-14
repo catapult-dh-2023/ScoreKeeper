@@ -23,7 +23,7 @@
             </div>
             <div class="flex flex-col mb-6">
               <x-input-label for="event" :value="__('イベント名')" />
-              <x-text-input id="event" class="block mt-1 w-full" type="text" name="event" :value="old('event')" placeholder="エンジニアカタパルト人狼交流会" required autofocus />
+              <x-text-input id="event" class="block mt-1 w-full" type="text" name="event_name" :value="old('event')" placeholder="エンジニアカタパルト人狼交流会" required autofocus />
               <x-input-error :messages="$errors->get('description')" class="mt-2" />
             </div>
             <div class="flex flex-col mb-6">
@@ -33,7 +33,7 @@
             </div>
               <x-input-label for="game" :value="__('村構成')" />
               <div class="flex">
-                <select id="num1" class="form-control flex border-gray-300 rounded py-1" name="num1" required>
+                <select id="num1" class="form-control flex border-gray-300 rounded py-1" name="total_participants" required>
                   <option value="-">-</option>
                   <option value="9">9</option>
                   <option value="10">10</option>
@@ -45,7 +45,7 @@
                 </select>
                 <span class="ml-3 mt-4">人</span>
                 <div class="flex flex-col mb-6 ml-3">
-                  <x-text-input id="description" class="block mt-1 w-full" type="text" name="description" :value="old('description')" placeholder="通常" required autofocus />
+                  <x-text-input id="description" class="block mt-1 w-full" type="text" name="situation" :value="old('description')" placeholder="通常" required autofocus />
                   <x-input-error :messages="$errors->get('description')" class="mt-2" />
                 </div>
                 <span class="ml-3 mt-4">村</span>
@@ -54,7 +54,7 @@
             </div>
             <div class="flex flex-col mb-6">
               <x-input-label for="role_id" :value="__('役職')" />
-              <select id="num1" class="form-control flex border-gray-300 rounded py-1" name="num1" required>
+              <select id="num1" class="form-control flex border-gray-300 rounded py-1" name="role" required>
                 <option value="1">人狼</option>
                 <option value="2">狂人</option>
                 <option value="3">狂信者</option>
@@ -71,7 +71,7 @@
             </div>
             <div class="flex flex-col mb-6">
               <x-input-label for="result_id" :value="__('勝敗')" />
-              <select id="num1" class="form-control flex border-gray-300 rounded py-1" name="num1" required>
+              <select id="result_id" class="form-control flex border-gray-300 rounded py-1" name="result_id" required>
                 <option value="1">勝ち</option>
                 <option value="2">負け</option>
               </select>
@@ -79,10 +79,12 @@
             <div class="flex flex-col mb-6">
               <x-input-label :value="__('生存 or 死亡')" />
               <div class="flex items-center">
-                <input type="radio" name="victory_or_day" id="victory" value="victory" class="ml-2">
+                <input type="radio" name="result_way" id="victory" value="1" class="ml-2">
                 <label for="victory" class="ml-2">生存</label>
-                <input type="radio" name="victory_or_day" id="day" value="day" class="ml-2">
-                <label for="day" class="ml-2">死亡</label>
+                <input type="radio" name="result_way" id="day" value="2" class="ml-2">
+                <label for="day" class="ml-2">吊り</label>
+                <input type="radio" name="result_way" id="day" value="3" class="ml-2">
+                <label for="day" class="ml-2">噛み</label>
               </div>
             </div>
             <div class="flex flex-col mb-6" id="outcome">
@@ -105,8 +107,8 @@
               });
             </script>
             <div class="flex flex-col mb-6">
-              <x-input-label for="memo" :value="__('メモ')" />
-              <x-text-input id="memo" class="block mt-1 w-full" type="text" name="memo" :value="old('memo')" placeholder="おなかが減って集中できなかった" required autofocus />
+              <x-input-label for="note" :value="__('メモ')" />
+              <x-text-input id="note" class="block mt-1 w-full" type="text" name="memo" :value="old('memo')" placeholder="おなかが減って集中できなかった" required autofocus />
               <x-input-error :messages="$errors->get('description')" class="mt-2" />
             </div>
             <div class="flex items-center justify-end mt-4">
