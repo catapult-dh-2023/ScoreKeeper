@@ -19,11 +19,16 @@
             <tbody>
               @foreach ($individual_results as $individual_result)
               <tr>
-                <td>game_id  {{$individual_result->game_id}}</td>
-                <td>role_id  {{$individual_result->role_id}}</td>
-                <td>{{$individual_result->result_id}}</td>
-                <td>{{$individual_result->result_day}}</td>
-                <td>{{$individual_result->result_way_id}}</td>
+                <td>{{$individual_result->game->date}}</td>
+                <td>{{$individual_result->game->event_name}}</td>
+                <td>{{$individual_result->game->date}}</td>
+                <td>{{$individual_result->game->total_participants}}人</td>
+                <td>{{$individual_result->game->situation}}村</td>
+                <td>{{$individual_result->game->note}}</td>
+                <td>{{$individual_result->role->name}}</td>
+                <td>{{$individual_result->result->name}}</td>
+                <td>{{$individual_result->result_day}} 日目</td>
+                <td>{{$individual_result->result_way->name}}</td>
                 <td>{{$individual_result->note}}</td>
               </tr>
               @endforeach
