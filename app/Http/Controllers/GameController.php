@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Validator;
 use App\Models\Game;
+use App\Models\IndividualResult;
+use Auth;
 
 class GameController extends Controller
 {
@@ -43,7 +45,10 @@ class GameController extends Controller
             return redirect()->route('game.create')->withInput()->withErrors($validator);
         }
 
-        $result = Game::create($request->all());
+        $result1 = Game::create($request->all());
+        $game_id = $result1->id;
+        $data = $request->merge(['user_id' => Auth::user()->id, 'game_id' => $game_id])->all();
+        $result2 = IndividualResult::create($data);
 
         return redirect()->route('game.index');
     }
