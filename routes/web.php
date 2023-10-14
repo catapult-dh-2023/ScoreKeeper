@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\GameController;
+use App\Http\Controllers\IndividualResultController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,6 +17,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::resource('game', GameController::class);
+Route::resource('individual_resouts', IndividualResultController::class);
+
+Route::middleware('auth')->group(function(){
+    Route::resource('individual_results', IndividualResultController::class);
+});
 
 Route::get('/', function () {
     return view('welcome');
