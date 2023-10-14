@@ -18,8 +18,8 @@
         </div>
         <!-- 🔽 一覧ページへのリンクを追加 -->
         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-          <x-nav-link :href="route('game.index')" :active="request()->routeIs('game.index')">
-            {{ __('Index') }}
+          <x-nav-link :href="route('individual_results.mydata')" :active="request()->routeIs('individual_results.mydata')">
+            {{ __('個人成績の閲覧') }}
           </x-nav-link>
         </div>
         <!-- 🔽 作成ページへのリンクを追加 -->
