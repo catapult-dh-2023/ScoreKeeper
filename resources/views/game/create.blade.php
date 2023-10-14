@@ -88,6 +88,7 @@
                 <label for="day" class="ml-2">噛み</label>
               </div>
             </div>
+            {{--
             <div class="flex flex-col mb-6" id="outcome">
               <x-input-label for="outcome" :value="__('結果')" />
               <input type="text" name="outcome" class="border-gray-300 rounded py-1" />
@@ -107,6 +108,7 @@
                   outcomeInput.style.display = 'block';
               });
             </script>
+            --}}
             <div class="flex flex-col mb-6">
               <x-input-label for="note" :value="__('メモ')" />
               <x-text-input id="note" class="block mt-1 w-full" type="text" name="memo" :value="old('memo')" placeholder="おなかが減って集中できなかった" required autofocus />
