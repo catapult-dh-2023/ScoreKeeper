@@ -10,20 +10,21 @@
     <div class="max-w-7xl mx-auto sm:w-10/12 md:w-8/10 lg:w-8/12">
       <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
         <div class="p-6 bg-white dark:bg-gray-800 border-b border-grey-200 dark:border-gray-800">
-          <table class="text-center w-full border-collapse">
+          <table>
             <thead>
               <tr>
-                <th class="py-4 px-6 bg-gray-lightest dark:bg-gray-darkest font-bold uppercase text-lg text-gray-dark dark:text-gray-200 border-b border-grey-light dark:border-grey-dark">tweet</th>
+                <th >個人成績一覧</th> 
               </tr>
             </thead>
             <tbody>
               @foreach ($individual_results as $individual_result)
-              <tr class="hover:bg-gray-lighter">
-                <td class="py-4 px-6 border-b border-gray-light dark:border-gray-600">
-                  <h3 class="text-left font-bold text-lg text-gray-dark dark:text-gray-200">{{$individual_result->role_id}}</h3>
-                  <div class="flex">
-                  </div>
-                </td>
+              <tr>
+                <td>game_id  {{$individual_result->game_id}}</td>
+                <td>role_id  {{$individual_result->role_id}}</td>
+                <td>{{$individual_result->result_id}}</td>
+                <td>{{$individual_result->result_day}}</td>
+                <td>{{$individual_result->result_way_id}}</td>
+                <td>{{$individual_result->note}}</td>
               </tr>
               @endforeach
             </tbody>
