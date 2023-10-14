@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\IndividualResult;
+use Auth;
 
 class IndividualResultController extends Controller
 {
@@ -60,5 +62,16 @@ class IndividualResultController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function mydata()
+    {
+        $individual_results = User::query()
+          ->find(Auth::user()->id)
+          ->userIndividualResults()
+          ->orderBy('created_at', 'desc')
+          ->get();
+        
+        return response()->view('individual_result.index', compact('individual_results'));
     }
 }
