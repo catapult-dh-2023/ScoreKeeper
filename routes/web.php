@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::resource('game', GameController::class);
-Route::resource('individual_results', IndividualResultController::class);
+//Route::resource('individual_results', IndividualResultController::class);
 
 Route::middleware('auth')->group(function(){
     Route::get('/individual_results/mydata', [IndividualResultController::class, 'mydata'])->name('individual_results.mydata');
