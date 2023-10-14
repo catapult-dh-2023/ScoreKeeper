@@ -113,8 +113,8 @@ class DatabaseSeeder extends Seeder
          \App\Models\IndividualResult::create([
             'user_id' => '1',
             'game_id' => '2',
-            'role_id' => '1',
-            'result_id' => '1',
+            'role_id' => '10',
+            'result_id' => '2',
             'result_day' => '1',
             'result_way_id' => '1',
             'note' => 'test case 2'
