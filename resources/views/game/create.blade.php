@@ -16,6 +16,21 @@
               <p class="text-xl mb-6 border-b">データ入力</p>
             </div>
             <div class="flex flex-col mb-6">
+            <div class="flex flex-col mb-6">
+              <x-input-label for="date" :value="__('ゲーム実施日')" />
+              <input id="date" type="date" name="date" class="block mt-1 w-full border border-gray-300 rounded p-2" value="{{ old('date') }}" required autofocus />
+              <x-input-error :messages="$errors->get('date')" class="mt-2" />
+            </div>
+            <div class="flex flex-col mb-6">
+              <x-input-label for="event" :value="__('イベント名')" />
+              <x-text-input id="event" class="block mt-1 w-full" type="text" name="event" :value="old('event')" placeholder="エンジニアカタパルト人狼交流会" required autofocus />
+              <x-input-error :messages="$errors->get('description')" class="mt-2" />
+            </div>
+            <div class="flex flex-col mb-6">
+              <x-input-label for="note" :value="__('イベントの詳細')" />
+              <x-text-input id="note" class="block mt-1 w-full" type="text" name="note" :value="old('note')" required autofocus />
+              <x-input-error :messages="$errors->get('description')" class="mt-2" />
+            </div>
               <x-input-label for="game" :value="__('村構成')" />
               <div class="flex">
                 <select id="num1" class="form-control flex border-gray-300 rounded py-1" name="num1" required>
@@ -30,7 +45,7 @@
                 </select>
                 <span class="ml-3 mt-4">人</span>
                 <div class="flex flex-col mb-6 ml-3">
-                  <x-text-input id="description" class="block mt-1 w-full" type="text" name="description" :value="old('description')" required autofocus />
+                  <x-text-input id="description" class="block mt-1 w-full" type="text" name="description" :value="old('description')" placeholder="通常" required autofocus />
                   <x-input-error :messages="$errors->get('description')" class="mt-2" />
                 </div>
                 <span class="ml-3 mt-4">村</span>
@@ -38,29 +53,27 @@
               <x-input-error :messages="$errors->get('game')" class="mt-2" />
             </div>
             <div class="flex flex-col mb-6">
-              <x-input-label for="role" :value="__('役職')" />
+              <x-input-label for="role_id" :value="__('役職')" />
               <select id="num1" class="form-control flex border-gray-300 rounded py-1" name="num1" required>
-                <option value="-">-</option>
-                <option value="zin">人狼</option>
-                <option value="kyo">狂人</option>
-                <option value="sin">狂信者</option>
-                <option value="sim">市民</option>
-                <option value="kis">騎士</option>
-                <option value="rei">霊媒師</option>
-                <option value="ura">占い師</option>
-                <option value="kyo">共有者</option>
-                <option value="mei">名探偵</option>
-                <option value="ter">てるてる</option>
-                <option value="you">妖狐</option>
-                <option value="hai">背徳者</option>
+                <option value="1">人狼</option>
+                <option value="2">狂人</option>
+                <option value="3">狂信者</option>
+                <option value="4">市民</option>
+                <option value="5">騎士</option>
+                <option value="6">霊媒師</option>
+                <option value="7">占い師</option>
+                <option value="8">共有者</option>
+                <option value="9">名探偵</option>
+                <option value="10">てるてる</option>
+                <option value="11">妖狐</option>
+                <option value="12">背徳者</option>
               </select>
             </div>
             <div class="flex flex-col mb-6">
-              <x-input-label for="LD" :value="__('勝敗')" />
+              <x-input-label for="result_id" :value="__('勝敗')" />
               <select id="num1" class="form-control flex border-gray-300 rounded py-1" name="num1" required>
-                <option value="-">-</option>
-                <option value="win">勝ち</option>
-                <option value="lose">負け</option>
+                <option value="1">勝ち</option>
+                <option value="2">負け</option>
               </select>
             </div>
             <div class="flex flex-col mb-6">
@@ -92,18 +105,8 @@
               });
             </script>
             <div class="flex flex-col mb-6">
-              <x-input-label for="date" :value="__('日付')" />
-              <input id="date" type="date" name="date" class="block mt-1 w-full border border-gray-300 rounded p-2" value="{{ old('date') }}" required autofocus />
-              <x-input-error :messages="$errors->get('date')" class="mt-2" />
-            </div>
-            <div class="flex flex-col mb-6">
-              <x-input-label for="event" :value="__('イベント')" />
-              <x-text-input id="event" class="block mt-1 w-full" type="text" name="event" :value="old('event')" required autofocus />
-              <x-input-error :messages="$errors->get('description')" class="mt-2" />
-            </div>
-            <div class="flex flex-col mb-6">
               <x-input-label for="memo" :value="__('メモ')" />
-              <x-text-input id="memo" class="block mt-1 w-full" type="text" name="memo" :value="old('memo')" required autofocus />
+              <x-text-input id="memo" class="block mt-1 w-full" type="text" name="memo" :value="old('memo')" placeholder="おなかが減って集中できなかった" required autofocus />
               <x-input-error :messages="$errors->get('description')" class="mt-2" />
             </div>
             <div class="flex items-center justify-end mt-4">
