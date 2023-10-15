@@ -77,4 +77,15 @@ class IndividualResultController extends Controller
 
         return response()->view('individual_results.index', compact('individual_results'));
     }
+    
+    public function analysis()
+    {
+        $individual_results = User::query()
+          ->find(Auth::user()->id)
+          ->userIndividualResults()
+          ->orderBy('created_at', 'desc')
+          ->get();
+          
+        return response()->view('individual_results.analysis', compact('individual_results'));
+    }
 }
