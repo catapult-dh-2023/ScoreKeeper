@@ -85,7 +85,19 @@ class IndividualResultController extends Controller
           ->userIndividualResults()
           ->orderBy('created_at', 'desc')
           ->get();
-          
-        return response()->view('individual_results.analysis', compact('individual_results'));
+        
+        //総成績
+        $individual_result_win = 0;
+        $individual_result_lose = 0;
+        foreach ($individual_results as $individual_result){
+            $result_id = $individual_result->result_id;
+            if ($result_id == 1){
+                $individual_result_win += 1;
+            }
+            else{
+                $individual_result_lose += 1;
+            }
+        }
+        return response()->view('individual_results.analysis', compact('individual_result_win', 'individual_result_lose'));
     }
 }

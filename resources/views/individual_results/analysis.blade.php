@@ -19,11 +19,12 @@
             <script>
                 const ctx = document.getElementById('my_winning_percentage');
                 new Chart(ctx, {
+                
                     type: 'pie',
                     data: {
                         labels:["win", "lose"],
                         datasets:[{
-                            data :[60, 40]
+                            data :[{{$individual_result_win}}, {{$individual_result_lose}}]
                         }]
                     },
                 });
