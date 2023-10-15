@@ -11,20 +11,25 @@ class SnsLoginController extends Controller
 {
     public function getGoogleAuth()
     {
-        return Socialite::driver('google')
-            ->redirect();
+        return Socialite::driver('google')->redirect();
     }
 
     public function authGoogleCallback()
     {
-        $googleUser = Socialite::driver('google')->stateless()->user();
-        $user = User::firstOrCreate([
-            'email' => $googleUser->email
-        ], [
-            'email_verified_at' => now(),
-            'google_id' => $googleUser->getId()
-        ]);
-        Auth::login($user, true);
-        return redirect('/home');
+        try {
+            $socialiteUser = Socialite::driver('google')->user();
+            $email = $socialiteUser->email;
+
+            $user = User::firstOrCreate(['email' => $email], [
+                'name' => $socialiteUser->name,
+            ]);
+
+            Auth::login($user);
+
+            return redirect()->intended('dashboard');
+        } catch (Exception $e) {
+            Log::error($e);
+            throw $e;
+        }
     }
 }
