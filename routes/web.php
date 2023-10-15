@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\IndividualResultController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SnsLoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,5 +39,8 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::get('/auth/google', [SnsLoginController::class, 'getGoogleAuth'])->name('login.google');
+Route::get('/auth/google/callback', [SnsLoginController::class, 'authGoogleCallback'])->name('login.google.callback');
 
 require __DIR__.'/auth.php';
