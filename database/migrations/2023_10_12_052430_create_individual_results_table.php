@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignId('game_id')->constrained()->cascadeOnDelete();
             $table->foreignId('role_id')->constrained()->cascadeOnDelete();
             $table->foreignId('result_id')->constrained()->cascadeOnDelete();
-            $table->integer('result_day');
+            $table->integer('result_day')->nullable();
             $table->foreignId('result_way_id')->constrained()->cascadeOnDelete();
             $table->text('note')->nullable();
             $table->timestamps();

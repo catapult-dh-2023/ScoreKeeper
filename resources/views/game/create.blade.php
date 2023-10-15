@@ -54,7 +54,7 @@
             </div>
             <div class="flex flex-col mb-6">
               <x-input-label for="role_id" :value="__('役職')" />
-              <select id="num1" class="form-control flex border-gray-300 rounded py-1" name="role_id" required>
+              <select id="role_id" class="form-control flex border-gray-300 rounded py-1" name="role_id" required>
                 <option value="1">人狼</option>
                 <option value="2">狂人</option>
                 <option value="3">狂信者</option>
@@ -76,16 +76,17 @@
                 <option value="2">負け</option>
               </select>
             </div>
-            <input name = 'result_day' type = 'text'>日目</input>
+            <input name = 'result_day' type = 'text' class="form-control border-gray-300 rounded py-1 mb-6">日目</input>
+            </script>
             <div class="flex flex-col mb-6">
               <x-input-label :value="__('生存 or 死亡')" />
               <div class="flex items-center">
-                <input type="radio" name="result_way_id" id="victory" value="1" class="ml-2">
+                <input type="radio" name="result_way_id" id="victory" value="3" class="ml-2">
                 <label for="victory" class="ml-2">生存</label>
-                <input type="radio" name="result_way_id" id="day" value="2" class="ml-2">
-                <label for="day" class="ml-2">吊り</label>
-                <input type="radio" name="result_way_id" id="day" value="3" class="ml-2">
-                <label for="day" class="ml-2">噛み</label>
+                <input type="radio" name="result_way_id" id="hung" value="1" class="ml-2">
+                <label for="hung" class="ml-2">吊り</label>
+                <input type="radio" name="result_way_id" id="bite" value="2" class="ml-2">
+                <label for="bite" class="ml-2">噛み</label>
               </div>
             </div>
             {{--

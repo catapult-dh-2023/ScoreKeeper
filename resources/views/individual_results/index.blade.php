@@ -21,14 +21,17 @@
               <tr>
                 <td>{{$individual_result->game->date}}</td>
                 <td>{{$individual_result->game->event_name}}</td>
-                <td>{{$individual_result->game->date}}</td>
                 <td>{{$individual_result->game->total_participants}}人</td>
                 <td>{{$individual_result->game->situation}}村</td>
                 <td>{{$individual_result->game->note}}</td>
                 <td>{{$individual_result->role->name}}</td>
                 <td>{{$individual_result->result->name}}</td>
-                <td>{{$individual_result->result_day}} 日目</td>
-                <td>{{$individual_result->result_way->name}}</td>
+                @if ($individual_result->result_day !== null)
+                  <td>{{ $individual_result->result_day }} 日目</td>
+                @endif
+                @if ($individual_result->result_way->id !== 3)
+                  <td>{{$individual_result->result_way->name}}</td>
+                @endif
                 <td>{{$individual_result->note}}</td>
               </tr>
               @endforeach
