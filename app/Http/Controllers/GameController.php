@@ -50,7 +50,7 @@ class GameController extends Controller
         $data = $request->merge(['user_id' => Auth::user()->id, 'game_id' => $game_id])->all();
         $result2 = IndividualResult::create($data);
 
-        return redirect()->route('game.index');
+        return redirect()->route('individual_results.mydata');
     }
 
     /**
