@@ -10,30 +10,37 @@
     <div class="max-w-7xl mx-auto sm:w-10/12 md:w-8/10 lg:w-8/12">
       <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
         <div class="p-6 bg-white dark:bg-gray-800 border-b border-grey-200 dark:border-gray-800">
-          <table>
-            <thead>
-              <tr>
-                <th >個人成績一覧</th> 
-              </tr>
-            </thead>
-            <tbody>
-              @foreach ($individual_results as $individual_result)
-              <tr>
-                <td>{{$individual_result->game->date}}</td>
-                <td>{{$individual_result->game->event_name}}</td>
-                <td>{{$individual_result->game->date}}</td>
-                <td>{{$individual_result->game->total_participants}}人</td>
-                <td>{{$individual_result->game->situation}}村</td>
-                <td>{{$individual_result->game->note}}</td>
-                <td>{{$individual_result->role->name}}</td>
-                <td>{{$individual_result->result->name}}</td>
-                <td>{{$individual_result->result_day}} 日目</td>
-                <td>{{$individual_result->result_way->name}}</td>
-                <td>{{$individual_result->note}}</td>
-              </tr>
-              @endforeach
-            </tbody>
-          </table>
+            <div>
+            <canvas id="my_winning_percentage"></canvas>
+            </div>
+
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+            <script>
+                const ctx = document.getElementById('my_winning_percentage');
+                new Chart(ctx, {
+                    type: 'pie',
+                    data: {
+                        labels:["win", "lose"],
+                        datasets:[{
+                            data :[60, 40]
+                        }]
+                    },
+                });
+                // new Chart(ctx, {
+                //     type: 'pie',
+                //     data: {
+                //     labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                //     datasets: [{
+                //         label: '# of Votes',
+                //         data: [12, 19, 3, 5, 2, 3],
+                //         borderWidth: 1
+                //     }]
+                //     },
+
+                // });
+            </script>
+
         </div>
       </div>
     </div>
