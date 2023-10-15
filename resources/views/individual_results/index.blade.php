@@ -26,7 +26,7 @@
                 <td>{{$individual_result->game->note}}</td>
                 <td>{{$individual_result->role->name}}</td>
                 <td>{{$individual_result->result->name}}</td>
-                @if ($individual_result->result_day !== null)
+                @if ($individual_result->result_day !== null && $individual_result->result_way->id !== 3)
                   <td>{{ $individual_result->result_day }} 日目</td>
                 @endif
                 @if ($individual_result->result_way->id !== 3)
