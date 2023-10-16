@@ -50,7 +50,7 @@
                   @if ($sim != 0)
                     <p style="font-size: 30px; margin-left:25%;">({{ number_format(100 * $win_sim / $sim, 2) }}%)</p> 
                   @else
-                    <p style="font-size: 30px; margin-left:25%;">(0%)</p>
+                    <p style="font-size: 30px; margin-left:25%;">( - %)</p>
                   @endif
                 </div>
                 <div>
@@ -58,15 +58,15 @@
                   @if ($zin != 0)
                     <p style="font-size: 30px; margin-left:25%;">({{ number_format(100 * $win_zin / $zin, 2) }}%)</p> 
                   @else
-                    <p style="font-size: 30px; margin-left:25%;">(0%)</p>
+                    <p style="font-size: 30px; margin-left:25%;">( - %)</p>
                   @endif
                 </div>
                 <div>
                   <p style="font-size: 30px; margin-left:25%; float:left;">第三陣営 : {{$win_san}} / {{$san}}</p> 
-                  @if ($sim != 0)
+                  @if ($san != 0)
                     <p style="font-size: 30px; margin-left:25%;">({{ number_format(100 * $win_san / $san, 2) }}%)</p> 
                   @else
-                    <p style="font-size: 30px; margin-left:25%;">(0%)</p>
+                    <p style="font-size: 30px; margin-left:25%;">( - %)</p>
                   @endif
                 </div>
             </div>
@@ -79,11 +79,12 @@
           </div>
           <div style="flex: 1; height:600px;">
             <div style="margin-left: 100px; margin-top: 200px; float:left;">
-              <canvas id="win_ld"></canvas>
+              <p>これまでの役職</p>
+              <canvas id="win_role"></canvas>
             </div>
             <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
             <script>
-              const ctx2 = document.getElementById('win_ld');
+              const ctx2 = document.getElementById('win_role');
               new Chart(ctx2, {
                 type: 'pie',
                 data: {
@@ -109,6 +110,7 @@
 
             <div style="width: 50%; margin-left: 100px; margin-top: 70px; float:left;">
                 <div style="margin-left: 100px; margin-top: 40px; float:left; width: 30%;">
+                  <p>市民陣営での勝敗</p>
                   <canvas id="sim_wl"></canvas>
                 </div>
                 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -138,6 +140,7 @@
                 </script>
 
                 <div style="margin-left: 100px; margin-top: 40px; float:left; width: 30%;">
+                  <p>人狼陣営での勝敗</p>
                   <canvas id="zin_wl"></canvas>
                 </div>
                 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -167,6 +170,7 @@
                 </script>
 
                 <div style="margin-left: 100px; margin-top: 40px; float:left; width: 30%;">
+                  <p><p>第三陣営での勝敗</p></p>
                   <canvas id="san_wl"></canvas>
                 </div>
                 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -199,14 +203,175 @@
           <div style="margin: 0px 30px;">
             <p style="font-size: 30px; border-bottom: 2px solid #BBB; padding: 20px 30px; flex: 1; margin-top:20px; text-align:center;">生死-勝率</p>
           </div>
+          <div style="flex: 1; height:600px;">
+            <div style="margin-left: 100px; margin-top: 200px; float:left;">
+              <p>試合終了時生死</p>
+              <canvas id="resultway"></canvas>
+            </div>
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            <script>
+              const ctx6 = document.getElementById('resultway');
+              new Chart(ctx6, {
+                type: 'pie',
+                data: {
+                  labels:["生存", "吊り", "噛み"],
+                  datasets:[{
+                    data :[{{$live}}, {{$hung}}, {{$bite}}]
+                  }]
+                },
+              });
+                    // new Chart(ctx, {
+                    //     type: 'pie',
+                    //     data: {
+                    //     labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                    //     datasets: [{
+                    //         label: '# of Votes',
+                    //         data: [12, 19, 3, 5, 2, 3],
+                    //         borderWidth: 1
+                    //     }]
+                    //     },
 
+                    // });
+            </script>
+
+            <div style="width: 50%; margin-left: 100px; margin-top: 70px; float:left;">
+                <div style="margin-left: 100px; margin-top: 40px; float:left; width: 30%;">
+                  <p>生存</p>
+                  <canvas id="live_wl"></canvas>
+                </div>
+                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                <script>
+                  const ctx7 = document.getElementById('live_wl');
+                  new Chart(ctx7, {
+                    type: 'pie',
+                    data: {
+                      labels:["勝利", "敗北"],
+                      datasets:[{
+                        data :[{{$win_live}}, {{$lose_live}}]
+                      }]
+                    },
+                  });
+                    // new Chart(ctx, {
+                    //     type: 'pie',
+                    //     data: {
+                    //     labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                    //     datasets: [{
+                    //         label: '# of Votes',
+                    //         data: [12, 19, 3, 5, 2, 3],
+                    //         borderWidth: 1
+                    //     }]
+                    //     },
+
+                    // });
+                </script>
+
+                <div style="margin-left: 100px; margin-top: 40px; float:left; width: 30%;">
+                  <p>吊り</p>
+                  <canvas id="hung_wl"></canvas>
+                </div>
+                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                <script>
+                  const ctx9 = document.getElementById('hung_wl');
+                  new Chart(ctx9, {
+                    type: 'pie',
+                    data: {
+                      labels:["勝利", "敗北"],
+                      datasets:[{
+                        data :[{{$win_hung}}, {{$lose_hung}}]
+                      }]
+                    },
+                  });
+                    // new Chart(ctx, {
+                    //     type: 'pie',
+                    //     data: {
+                    //     labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                    //     datasets: [{
+                    //         label: '# of Votes',
+                    //         data: [12, 19, 3, 5, 2, 3],
+                    //         borderWidth: 1
+                    //     }]
+                    //     },
+
+                    // });
+                </script>
+
+                <div style="margin-left: 100px; margin-top: 40px; float:left; width: 30%;">
+                  <p>噛み</p>
+                  <canvas id="bite_wl"></canvas>
+                </div>
+                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                <script>
+                  const ctx10 = document.getElementById('bite_wl');
+                  new Chart(ctx10, {
+                    type: 'pie',
+                    data: {
+                      labels:["勝利", "敗北"],
+                      datasets:[{
+                        data :[{{$win_bite}}, {{$lose_bite}}]
+                      }]
+                    },
+                  });
+                    // new Chart(ctx, {
+                    //     type: 'pie',
+                    //     data: {
+                    //     labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                    //     datasets: [{
+                    //         label: '# of Votes',
+                    //         data: [12, 19, 3, 5, 2, 3],
+                    //         borderWidth: 1
+                    //     }]
+                    //     },
+
+                    // });
+                </script>
+            </div>
+          </div>
           <div style="margin: 0px 30px;">
             <p style="font-size: 30px; border-bottom: 2px solid #BBB; padding: 20px 30px; flex: 1; margin-top:20px; text-align:center;">人数-勝率</p>
           </div>
-
-          <div style="margin: 0px 30px;">
-            <p style="font-size: 30px; border-bottom: 2px solid #BBB; padding: 20px 30px; flex: 1; margin-top:20px; text-align:center;">月別-勝率</p>
+          <div style="width: 80%; margin: 0 auto;">
+            <canvas id="percentageChart"></canvas>
           </div>
+          <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+          <script>
+            // Canvas要素を取得
+            const ctx11 = document.getElementById('percentageChart').getContext('2d');
+
+            // チャートを描画
+            const chart = new Chart(ctx11, {
+              type: 'bar',
+              data: {
+                labels: ["9人", "10人", "11人", "12人", "13人", "14人", "15人"],
+                datasets: [{
+                  data: [{{$nine_win/$nine}}, {{$ten_win/$ten}}, {{$eleven}}, {{$twelve}}, {{$thirteen}}, {{$fourteen}}, {{$fifteen}}],
+                  backgroundColor: 'rgba(75, 192, 192, 0.6)',
+                  borderWidth: 1
+                }]
+              },
+              options: {
+                scales: {
+                  x: {
+                    min: 0,
+                    max: 100,
+                    ticks: {
+                      stepSize: 10
+                    },
+                    title: {
+                      display: true,
+                      text: 'Percentage (%)'
+                    }
+                  },
+                },
+                plugins: {
+                  tooltip: {
+                    callbacks: {
+                      label: (context) => `${context.raw}%`
+                    }
+                  }
+                }
+              }
+            });
+          </script>
         </div>
       </div>
     </div>
