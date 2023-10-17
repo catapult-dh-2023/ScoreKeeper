@@ -363,6 +363,9 @@
                   },
                 },
                 plugins: {
+                  legend: {
+                    display: false,
+                  },
                   tooltip: {
                     callbacks: {
                       label: (context) => `${context.raw}%`
