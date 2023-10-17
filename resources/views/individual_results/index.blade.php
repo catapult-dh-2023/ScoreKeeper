@@ -42,7 +42,7 @@
               <tr>
                 <td>{{$individual_result->game->date}}</td>
                 <td>{{$individual_result->game->event_name}}</td>
-                <td>{{(string)$individual_result->game->total_participants.$individual_result->game->situation}}村</td>
+                <td>{{(string)$individual_result->game->total_participants."人".$individual_result->game->situation}}村</td>
 
                 <td>{{$individual_result->game->note}}</td>
                 <td>{{$individual_result->role->name}}</td>
