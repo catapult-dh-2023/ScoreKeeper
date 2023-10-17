@@ -42,4 +42,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    //usersテーブルとindividual_resultsテーブルの連携
+    public function userIndividualResults()
+    {
+        return $this->hasMany(IndividualResult::class);
+    }
 }

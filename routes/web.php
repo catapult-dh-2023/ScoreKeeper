@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\GameController;
+use App\Http\Controllers\IndividualResultController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,14 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::resource('game', GameController::class);
+//Route::resource('individual_results', IndividualResultController::class);
+
+Route::middleware('auth')->group(function(){
+    Route::get('/individual_results/mydata', [IndividualResultController::class, 'mydata'])->name('individual_results.mydata');
+    Route::resource('individual_results', IndividualResultController::class);
+});
 
 Route::get('/', function () {
     return view('welcome');
