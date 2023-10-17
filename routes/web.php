@@ -22,6 +22,7 @@ Route::resource('game', GameController::class);
 
 Route::middleware('auth')->group(function(){
     Route::get('/individual_results/mydata', [IndividualResultController::class, 'mydata'])->name('individual_results.mydata');
+    Route::get('/individual_results/analysis', [IndividualResultController::class, 'analysis'])->name('individual_results.analysis');
     Route::resource('individual_results', IndividualResultController::class);
 });
 
