@@ -108,16 +108,16 @@ class IndividualResultController extends Controller
         $win_hung=0;
         $lose_hung=0;
         $nine=0;
-        $ten=1;
+        $ten=0;
         $eleven=0;
-        $twelve=5;
+        $twelve=0;
         $thirteen=0;
         $fourteen=0;
         $fifteen=0;
         $nine_win=0;
-        $ten_win=1;
+        $ten_win=0;
         $eleven_win=0;
-        $twelve_win=5;
+        $twelve_win=0;
         $thirteen_win=0;
         $fourteen_win=0;
         $fifteen_win=0;
@@ -182,27 +182,82 @@ class IndividualResultController extends Controller
                     $lose_live += 1;
                 }
             }
-            if ($nine == 0) {
-                $nine=1;
+            $game = $individual_result->game;
+            $totalParticipants = $game->total_participants;
+            if ($result_id == 1){
+                if ($totalParticipants<=9) {
+                    $nine += 1;
+                    $nine_win += 1;
+                }
+                if ($totalParticipants==10) {
+                    $ten += 1;
+                    $ten_win += 1;
+                }
+                if ($totalParticipants==11) {
+                    $eleven += 1;
+                    $eleven_win += 1;
+                }
+                if ($totalParticipants==12) {
+                    $twelve += 1;
+                    $twelve_win += 1;
+                }
+                if ($totalParticipants==13) {
+                    $thirteen += 1;
+                    $thirteen_win += 1;
+                }
+                if ($totalParticipants==14) {
+                    $fourteen += 1;
+                    $fourteen_win += 1;
+                }
+                if ($totalParticipants==15) {
+                    $fiveteen += 1;
+                    $fiveteen_win += 1;
+                }
             }
-            if ($ten == 0) {
-                $ten=1;
+            else {
+                if ($totalParticipants<=9) {
+                    $nine += 1;
+                }
+                if ($totalParticipants==10) {
+                    $ten += 1;
+                }
+                if ($totalParticipants==11) {
+                    $eleven += 1;
+                }
+                if ($totalParticipants==12) {
+                    $twelve += 1;
+                }
+                if ($totalParticipants==13) {
+                    $thirteen += 1;
+                }
+                if ($totalParticipants==14) {
+                    $fourteen += 1;
+                }
+                if ($totalParticipants==15) {
+                    $fiveteen += 1;
+                }
             }
-            if ($eleven == 0) {
-                $eleven=1;
-            }
-            if ($twelve == 0) {
-                $twelve=1;
-            }
-            if ($thirteen == 0) {
-                $thirteen=1;
-            }
-            if ($fourteen == 0) {
-                $fourteen=1;
-            }
-            if ($fifteen == 0) {
-                $fifteen=1;
-            }
+        }
+        if ($nine == 0) {
+            $nine=1;
+        }
+        if ($ten == 0) {
+            $ten=1;
+        }
+        if ($eleven == 0) {
+            $eleven=1;
+        }
+        if ($twelve == 0) {
+            $twelve=1;
+        }
+        if ($thirteen == 0) {
+            $thirteen=1;
+        }
+        if ($fourteen == 0) {
+            $fourteen=1;
+        }
+        if ($fifteen == 0) {
+            $fifteen=1;
         }
         return response()->view('individual_results.analysis', compact('individual_result_win', 'individual_result_lose', 'sim', 'zin', 'san', 'win_sim', 'win_zin', 'win_san', 'lose_sim', 'lose_zin', 'lose_san', 'live', 'bite', 'hung', 'win_live', 'lose_live', 'win_bite', 'lose_bite', 'win_hung', 'lose_hung', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'nine_win', 'ten_win', 'eleven_win', 'twelve_win', 'thirteen_win', 'fourteen_win', 'fifteen_win'));
     }

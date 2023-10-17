@@ -343,7 +343,7 @@
               data: {
                 labels: ["9人", "10人", "11人", "12人", "13人", "14人", "15人"],
                 datasets: [{
-                  data: [{{$nine_win/$nine}}, {{$ten_win/$ten}}, {{$eleven}}, {{$twelve}}, {{$thirteen}}, {{$fourteen}}, {{$fifteen}}],
+                  data: [{{$nine_win/$nine*100}}, {{$ten_win/$ten*100}}, {{$eleven_win/$eleven*100}}, {{$twelve_win/$twelve*100}}, {{$thirteen_win/$thirteen*100}}, {{$fourteen_win/$fourteen*100}}, {{$fifteen_win/$fifteen*100}}],
                   backgroundColor: 'rgba(75, 192, 192, 0.6)',
                   borderWidth: 1
                 }]
@@ -368,7 +368,8 @@
                       label: (context) => `${context.raw}%`
                     }
                   }
-                }
+                },
+                indexAxis: 'y'
               }
             });
           </script>
