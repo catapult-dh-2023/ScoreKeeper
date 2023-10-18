@@ -37,8 +37,8 @@
                         <img src="{{ asset('logo.png') }}" alt="ScoreKeeperのロゴ">
                     </div>
                 </div>
-                <div>人狼ゲームの個人成績管理ができます。</div>
-                <div>ご意見等ございましたらこちらへ。</div></div>
+                <div>人狼ゲームの個人成績を管理します。</div>
+                <div>ご意見等ございましたら<a>こちらへ。</a></div>
             </div>
         </div>
     </body>
