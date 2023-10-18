@@ -1,4 +1,4 @@
-(public/logo.png)
+![ロゴ](public/logo.png)
 # ScoreKeeper
 
 対面人狼ゲームの個人成績を記録するWebページ
