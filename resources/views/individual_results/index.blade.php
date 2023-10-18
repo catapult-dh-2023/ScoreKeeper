@@ -1,7 +1,7 @@
 <x-app-layout>
   <x-slot name="header">
     <h2 class="font-semibold text-xl text-gray-800 leading-tight dark:text-gray-200">
-      {{ __('個人成績一覧') }}
+      {{ __('Record') }}
     </h2>
   </x-slot>
 

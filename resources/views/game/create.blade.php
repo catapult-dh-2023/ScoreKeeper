@@ -1,7 +1,7 @@
 <x-app-layout>
   <x-slot name="header">
     <h2 class="font-semibold text-xl text-gray-800 leading-tight dark:text-gray-200">
-      {{ __('新たに結果を入力する') }}
+      {{ __('Create') }}
     </h2>
   </x-slot>
 

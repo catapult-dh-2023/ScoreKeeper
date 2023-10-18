@@ -19,7 +19,7 @@
         <!-- 🔽 一覧ページへのリンクを追加 -->
         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
           <x-nav-link :href="route('individual_results.mydata')" :active="request()->routeIs('individual_results.mydata')">
-            {{ __('個人成績の閲覧') }}
+            {{ __('Record') }}
           </x-nav-link>
         </div>
         <!-- 🔽 作成ページへのリンクを追加 -->
@@ -31,7 +31,7 @@
         <!-- 🔽 分析ページへのリンクを追加 -->
         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
           <x-nav-link :href="route('individual_results.analysis')" :active="request()->routeIs('individual_results.analysis')">
-            {{ __('分析') }}
+            {{ __('Analysis') }}
           </x-nav-link>
         </div>
       </div>
