@@ -28,6 +28,12 @@
             {{ __('Create') }}
           </x-nav-link>
         </div>
+        <!-- 🔽 分析ページへのリンクを追加 -->
+        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+          <x-nav-link :href="route('individual_results.analysis')" :active="request()->routeIs('individual_results.analysis')">
+            {{ __('分析') }}
+          </x-nav-link>
+        </div>
       </div>
 
       <!-- Settings Dropdown -->
