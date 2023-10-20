@@ -1,7 +1,7 @@
 <x-app-layout>
   <x-slot name="header">
     <h2 class="font-semibold text-xl text-gray-800 leading-tight dark:text-gray-200">
-      {{ __('個人成績一覧') }}
+      {{ __('Record') }}
     </h2>
   </x-slot>
 
@@ -31,7 +31,6 @@
                 <th>日付</th>
                 <th>イベント</th>
                 <th>村構成</th>
-                <th>イベント詳細</th>
                 <th>役職</th>
                 <th>勝敗</th>
                 <th>死亡</th>
@@ -44,14 +43,18 @@
                 <td>{{$individual_result->game->event_name}}</td>
                 <td>{{(string)$individual_result->game->total_participants."人".$individual_result->game->situation}}村</td>
 
-                <td>{{$individual_result->game->note}}</td>
+                <!-- <td>{{$individual_result->game->note}}</td> -->
                 <td>{{$individual_result->role->name}}</td>
                 <td>{{$individual_result->result->name}}</td>
                 @if ($individual_result->result_day !== null && $individual_result->result_way->id !== 3)
                   <td>{{ $individual_result->result_day }} 日目</td>
+                @else
+                  <td>生存</td>
                 @endif
                 @if ($individual_result->result_way->id !== 3)
                   <td>{{$individual_result->result_way->name}}</td>
+                @else
+                  <td>-</td>
                 @endif
                 <td>{{$individual_result->note}}</td>
               </tr>
