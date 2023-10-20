@@ -10,22 +10,22 @@
           </a>
         </div>
 
-        <!-- Navigation Links -->
+        <!-- Navigation Links
         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
           <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
             {{ __('Dashboard') }}
+          </x-nav-link>
+        </div> -->
+        <!-- 🔽 作成ページへのリンクを追加 -->
+        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+          <x-nav-link :href="route('game.create')" :active="request()->routeIs('game.create')">
+            {{ __('Create') }}
           </x-nav-link>
         </div>
         <!-- 🔽 一覧ページへのリンクを追加 -->
         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
           <x-nav-link :href="route('individual_results.mydata')" :active="request()->routeIs('individual_results.mydata')">
             {{ __('Record') }}
-          </x-nav-link>
-        </div>
-        <!-- 🔽 作成ページへのリンクを追加 -->
-        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-          <x-nav-link :href="route('game.create')" :active="request()->routeIs('game.create')">
-            {{ __('Create') }}
           </x-nav-link>
         </div>
         <!-- 🔽 分析ページへのリンクを追加 -->
