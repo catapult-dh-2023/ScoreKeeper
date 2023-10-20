@@ -26,11 +26,11 @@
               <x-text-input id="event" class="block mt-1 w-full" type="text" name="event_name" :value="old('event')" placeholder="エンジニアカタパルト人狼交流会" required autofocus />
               <x-input-error :messages="$errors->get('description')" class="mt-2" />
             </div>
-            <div class="flex flex-col mb-6">
+            <!-- <div class="flex flex-col mb-6">
               <x-input-label for="note" :value="__('イベントの詳細')" />
               <x-text-input id="note" class="block mt-1 w-full" type="text" name="note" :value="old('note')" required autofocus />
               <x-input-error :messages="$errors->get('description')" class="mt-2" />
-            </div>
+            </div> -->
               <x-input-label for="game" :value="__('村構成')" />
               <div class="flex">
                 <select id="num1" class="form-control flex border-gray-300 rounded py-1" name="total_participants" required>
@@ -112,7 +112,7 @@
             --}}
             <div class="flex flex-col mb-6">
               <x-input-label for="note" :value="__('メモ')" />
-              <x-text-input id="note" class="block mt-1 w-full" type="text" name="memo" :value="old('memo')" placeholder="おなかが減って集中できなかった" required autofocus />
+              <x-text-input id="note" class="block mt-1 w-full" type="text" name="note" :value="old('note')" placeholder="おなかが減って集中できなかった" required autofocus />
               <x-input-error :messages="$errors->get('description')" class="mt-2" />
             </div>
             <div class="flex items-center justify-end mt-4">
