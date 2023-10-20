@@ -234,7 +234,7 @@ class IndividualResultController extends Controller
                     $fourteen += 1;
                 }
                 if ($totalParticipants==15) {
-                    $fiveteen += 1;
+                    $fifteen += 1;
                 }
             }
         }
