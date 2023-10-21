@@ -32,4 +32,28 @@ class SnsLoginController extends Controller
             throw $e;
         }
     }
+
+    public function getLineAuth() {
+        return Socialite::driver('line')->redirect();
+    }
+
+    public function authLineCallback()
+    {
+        try {
+            $line_user = Socialite::driver('line')->user();
+            $email = $line_user->email;
+
+            $user = User::firstOrCreate(
+                ['line_user_id' => $line_user->id],
+                ['name' => $line_user->name]
+            );
+
+            Auth::login($user);
+
+            return redirect()->intended('dashboard');
+        } catch (Exception $e) {
+            Log::error($e);
+            throw $e;
+        }
+    }
 }
