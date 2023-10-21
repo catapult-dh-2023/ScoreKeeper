@@ -43,4 +43,13 @@ Route::middleware('auth')->group(function () {
 Route::get('/auth/google', [SnsLoginController::class, 'getGoogleAuth'])->name('login.google');
 Route::get('/auth/google/callback', [SnsLoginController::class, 'authGoogleCallback'])->name('login.google.callback');
 
+Route::get('/auth/line', [SnsLoginController::class, 'getLineAuth'])->name('login.line');
+Route::get('/auth/line/callback', [SnsLoginController::class, 'authLineCallback'])->name('login.line.callback');
+
+// Auth::routes();
+// Route::prefix('login')->name('login.')->group(function() {
+//     Route::get('/line/redirect', [SnsLoginController::class, 'redirectToProvider'])->name('line.redirect');
+//     Route::get('/line/callback', [SnsLoginController::class, 'handleProviderCallback'])->name('line.callback');
+// });
+
 require __DIR__.'/auth.php';
