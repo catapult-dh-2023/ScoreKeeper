@@ -210,8 +210,8 @@ class IndividualResultController extends Controller
                     $fourteen_win += 1;
                 }
                 if ($totalParticipants==15) {
-                    $fiveteen += 1;
-                    $fiveteen_win += 1;
+                    $fifteen += 1;
+                    $fifteen_win += 1;
                 }
             }
             else {

@@ -3,20 +3,17 @@
 
 対面人狼ゲームの個人成績を記録するWebページ
 
-
-## デモ
-
-![デモ](https://image-url.gif)
-
-
 ## 使い方
 
-DEMOの実行方法など、"Webアプリ"の基本的な使い方を説明
+1. Createタブで人狼戦績を入力できます
+2. Recordタブで戦績を閲覧できます
+3. Analysisタブで戦績を分析できます
 
-1. 使い方
-2. 使い方
-3. 使い方
 
+## 会員登録
+* メールアドレス
+* Googleアカウント
+* Lineアカウント
 
 ## 環境
 
@@ -32,12 +29,11 @@ DEMOの実行方法など、"Webアプリ"の基本的な使い方を説明
 
 ## 文責
 
-作成情報を列挙する
+* sizetokage
+* RiRinbaru
+* takatobi002
+* yusukehamamoto
 
-* 作成者
-* 所属
-* E-mail
-* [@twitter_username](https://twitter.com/twitter_username)
 
 
 ## ライセンス

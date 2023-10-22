@@ -70,6 +70,13 @@
                     </div>
                 </div>
 
+                <div style="margin-top: 40px;">
+                </div>
+
+                <div class="flex justify-center">
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScbC3dtnUMU9wBzlh9hjNYi5N7h-LNAtXc5DHRXz55fhPrKrA/viewform?embedded=true" width="640" height="554" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
+                </div>
+
                 <div class="flex justify-center mt-16 px-0 sm:items-center sm:justify-between">
                     <div class="text-center text-sm text-gray-500 dark:text-gray-400 sm:text-left">
                         <div class="flex items-center gap-4">
