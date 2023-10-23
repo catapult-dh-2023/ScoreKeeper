@@ -5,6 +5,7 @@ use App\Http\Controllers\GameController;
 use App\Http\Controllers\IndividualResultController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SnsLoginController;
+use App\Http\Controllers\LeagueController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,9 +22,13 @@ Route::resource('game', GameController::class);
 //Route::resource('individual_results', IndividualResultController::class);
 
 Route::middleware('auth')->group(function(){
+    //individual_results関連
     Route::get('/individual_results/mydata', [IndividualResultController::class, 'mydata'])->name('individual_results.mydata');
     Route::get('/individual_results/analysis', [IndividualResultController::class, 'analysis'])->name('individual_results.analysis');
     Route::resource('individual_results', IndividualResultController::class);
+    //league関連
+    Route::get('/league/index', [LeagueController::class, 'index'])->name('league.index');
+    Route::resource('league', LeagueController::class);
 });
 
 Route::get('/', function () {

@@ -34,6 +34,12 @@
             {{ __('Analysis') }}
           </x-nav-link>
         </div>
+        <!-- 🔽 リーグ関連ページへのリンクを追加 -->
+        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+          <x-nav-link :href="route('league.index')" :active="request()->routeIs('league')">
+            {{ __('League') }}
+          </x-nav-link>
+        </div> 
       </div>
 
       <!-- Settings Dropdown -->
