@@ -14,4 +14,8 @@ class Game extends Model
         'created_at',
         'updated_at',
     ];
+    public function Leagues()
+    {
+        return $this->hasMany(League::class)->withTimestamps();
+    }
 }

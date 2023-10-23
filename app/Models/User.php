@@ -50,4 +50,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(IndividualResult::class);
     }
+
+    public function Leagues()
+    {
+        return $this->hasMany(League::class)->withTimestamps();
+    }
 }
