@@ -21,6 +21,7 @@ class LeagueController extends Controller
     public function create()
     {
         //
+        return view('league.create');
     }
 
     /**
@@ -61,5 +62,8 @@ class LeagueController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+    public function my_league(){
+        return response()->view('league.show');
     }
 }

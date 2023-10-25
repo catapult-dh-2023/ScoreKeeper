@@ -28,6 +28,7 @@ Route::middleware('auth')->group(function(){
     Route::resource('individual_results', IndividualResultController::class);
     //league関連
     Route::get('/league/index', [LeagueController::class, 'index'])->name('league.index');
+    Route::get('/league/my_league', [LeagueController::class, 'my_league'])->name('league.my_league');
     Route::resource('league', LeagueController::class);
 });
 
