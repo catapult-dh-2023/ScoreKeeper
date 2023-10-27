@@ -53,6 +53,6 @@ class User extends Authenticatable
 
     public function Leagues()
     {
-        return $this->hasMany(League::class)->withTimestamps();
+        return $this->belongsToMany(League::class)->withTimestamps();
     }
 }

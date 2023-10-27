@@ -35,14 +35,14 @@ class DatabaseSeeder extends Seeder
              'event_name' => 'TestEvent',
              'situation' => 'TestSituation',
              'total_participants' => 100000,
-             'note' => 'Gameidが発行されてない個人成績はこのGaemとして扱いましょう' 
+             'note' => 'Game_idが発行されてない個人成績はこのGameとして扱いましょう',
          ]);
          \App\Models\Game::create([
              'date' => '2023-10-13',
              'event_name' => 'TestEvent2',
              'situation' => 'TestSituation',
              'total_participants' => 500000,
-             'note' => 'Testgame2' 
+             'note' => 'Test_game2',
          ]);
         //roleテーブル(たくさん)
          \App\Models\Role::create([
@@ -138,6 +138,6 @@ class DatabaseSeeder extends Seeder
          ]);
 
         $this->call(IndividualResultsSeeder::class);
-
+        $this->call(LeaguesSeeder::class);
     }
 }

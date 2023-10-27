@@ -9,11 +9,12 @@ class League extends Model
 {
     use HasFactory;
 
-    public function users(){
-        return $this->belongsTomany(User::class)->withTimestamps();
+    public function users()
+    {
+        return $this->belongsToMany(User::class)->withTimestamps();
     }
     public function games()
     {
-        return $this->hasMany(Game::class)->withTimestamps();
+        return $this->belongsToMany(Game::class, 'league_game')->withTimestamps();
     }
 }

@@ -16,6 +16,6 @@ class Game extends Model
     ];
     public function Leagues()
     {
-        return $this->hasMany(League::class)->withTimestamps();
+        return $this->belongsToMany(League::class, 'league_game')->withTimestamps();
     }
 }
