@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\League;
+use Validator;
 
 class LeagueController extends Controller
 {
@@ -30,6 +32,19 @@ class LeagueController extends Controller
     public function store(Request $request)
     {
         //
+            // バリデーション
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+        ]);
+
+        // バリデーションエラー
+        if ($validator->fails()) {
+            return redirect()->route('league.create')->withInput()->withErrors($validator);
+        }
+
+        $result = League::create($request->all());
+
+        return redirect()->route('league.index');
     }
 
     /**

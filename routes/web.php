@@ -20,6 +20,7 @@ use App\Http\Controllers\LeagueController;
 
 Route::resource('game', GameController::class);
 //Route::resource('individual_results', IndividualResultController::class);
+Route::resource('league', LeagueController::class);
 
 Route::middleware('auth')->group(function(){
     //individual_results関連
@@ -27,9 +28,9 @@ Route::middleware('auth')->group(function(){
     Route::get('/individual_results/analysis', [IndividualResultController::class, 'analysis'])->name('individual_results.analysis');
     Route::resource('individual_results', IndividualResultController::class);
     //league関連
-    Route::get('/league/index', [LeagueController::class, 'index'])->name('league.index');
+    //Route::get('/league/index', [LeagueController::class, 'index'])->name('league.index');
     Route::get('/league/my_league', [LeagueController::class, 'my_league'])->name('league.my_league');
-    Route::resource('league', LeagueController::class);
+
 });
 
 Route::get('/', function () {
