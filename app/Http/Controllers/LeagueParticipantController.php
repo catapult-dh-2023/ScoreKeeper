@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Game;
+use App\Models\User;
 use App\Models\League;
 
-class MatchController extends Controller
+class LeagueParticipantController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,9 +27,10 @@ class MatchController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(League $league)
     {
         //
+        $league->users()->attach(Auth::id());
     }
 
     /**

@@ -3,12 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Game;
 use App\Models\League;
-use App\Models\User;
-use Validator;
-use Auth;
 
-class LeagueController extends Controller
+class LeagueMatchController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +14,6 @@ class LeagueController extends Controller
     public function index()
     {
         //
-        return response()->view('league.index');
     }
 
     /**
@@ -25,7 +22,6 @@ class LeagueController extends Controller
     public function create()
     {
         //
-        return view('league.create');
     }
 
     /**
@@ -34,23 +30,6 @@ class LeagueController extends Controller
     public function store(Request $request)
     {
         //
-            // バリデーション
-        $validator = Validator::make($request->all(), [
-            'name' => 'required',
-        ]);
-
-        // バリデーションエラー
-        if ($validator->fails()) {
-            return redirect()->route('league.create')->withInput()->withErrors($validator);
-        }
-
-        $result1 = League::create($request->all());
-
-        $league_id = $result1->id;
-        $user_id = Auth::user()->id;
-        $data = $request->merge(['user_id' => Auth::user()->id, 'league_id' => $league_id])->all();
-        $result2 = LeagueParticipant::create($request);
-        return redirect()->route('league.index');
     }
 
     /**
@@ -83,8 +62,5 @@ class LeagueController extends Controller
     public function destroy(string $id)
     {
         //
-    }
-    public function my_league(){
-        return response()->view('league.show');
     }
 }
